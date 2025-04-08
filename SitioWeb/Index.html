@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona - Sitio Oficial</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        /* Variables de colores */
+        :root {
+            --barca-blue: #0e27f7;
+            --barca-red: #f70e0e;
+            --dark-blue: #0a1ca8;
+            --dark-red: #c00b0b;
+            --light-gray: #f4f4f4;
+            --dark-gray: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--barca-blue) 50%, var(--barca-red) 50%);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(14, 39, 247, 0.7), rgba(247, 14, 14, 0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--barca-red);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--barca-blue);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--barca-red);
+            margin-left: 1rem;
+        }
+
+        /* Secciones Principales */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            margin: 0.5rem auto;
+            background: linear-gradient(to right, var(--barca-blue), var(--barca-red));
+        }
+
+        /* Noticias */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--barca-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more:hover {
+            color: var(--barca-red);
+        }
+
+        /* Próximos Partidos */
+        .fixtures {
+            background-color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .fixtures .container {
+            padding: 2rem 1rem;
+        }
+
+        .match-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .match-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .match-info {
+            flex: 1;
+        }
+
+        .match-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .match-teams {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex: 2;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .match-teams img {
+            height: 40px;
+            width: auto;
+        }
+
+        .team-name {
+            width: 120px;
+            text-align: center;
+        }
+
+        .vs {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .match-venue {
+            flex: 1;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        /* Jugadores Destacados */
+        .players {
+            padding: 4rem 0;
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .player-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .player-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .player-info {
+            padding: 1.5rem;
+        }
+
+        .player-number {
+            display: inline-block;
+            background-color: var(--barca-blue);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .player-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-gray);
+        }
+
+        .player-position {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        /* Tienda */
+        .store {
+            background-color: var(--light-gray);
+            padding: 4rem 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--barca-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Estadio */
+        .stadium {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+
+        .stadium-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stadium-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stadium-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .stadium-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .stadium-info p {
+            margin-bottom: 1.5rem;
+        }
+
+        .visit-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 6px;
+        }
+
+        .info-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--barca-blue);
+        }
+
+        /* Historia */
+        .history {
+            padding: 4rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--barca-blue), var(--barca-red));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 50px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 4px solid var(--barca-blue);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -14px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -14px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--barca-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--barca-blue), var(--barca-red));
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--barca-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 17px;
+            }
+
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 17px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background-color: var(--barca-blue);
+                width: 100%;
+                height: calc(100% - 80px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: all 0.5s ease;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .stadium-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="FC Barcelona Logo">
+                <h1>FC Barcelona</h1>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#partidos">Partidos</a></li>
+                    <li><a href="#jugadores">Jugadores</a></li>
+                    <li><a href="#tienda">Tienda</a></li>
+                    <li><a href="#estadio">Camp Nou</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Més que un club</h2>
+            <p>Bienvenido al sitio oficial del FC Barcelona, un club con más de 120 años de historia y pasión por el fútbol.</p>
+            <a href="#partidos" class="btn btn-primary">Próximos Partidos</a>
+            <a href="#tienda" class="btn btn-secondary">Comprar Entradas</a>
+        </div>
+    </section>
+
+    <!-- Noticias -->
+    <section id="noticias" class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Últimas Noticias</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="img/news/news1.jpg" alt="Noticia 1" class="news-img">
+                    <div class="news-content">
+                        <div class="news-date">8 de abril, 2025</div>
+                        <h3 class="news-title">Victoria contundente en el partido de liga</h3>
+                        <p class="news-excerpt">El equipo sumó tres puntos cruciales en la lucha por el título tras una actuación espectacular en el último partido de liga.</p>
+                        <a href="#" class="read-more">Leer más →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="img/news/news3.jpg" alt="Noticia 2" class="news-img">
+                    <div class="news-content">
+                        <div class="news-date">7 de abril, 2025</div>
+                        <h3 class="news-title">Nueva incorporación al equipo técnico</h3>
+                        <p class="news-excerpt">El club ha anunciado la incorporación de un nuevo miembro al equipo técnico para fortalecer el cuerpo de preparadores.</p>
+                        <a href="#" class="read-more">Leer más →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="img/news/news2.jpg" alt="Noticia 3" class="news-img">
+                    <div class="news-content">
+                        <div class="news-date">5 de abril, 2025</div>
+                        <h3 class="news-title">Victoria contundente en el partido en la Copa de Rey</h3>
+                        <p class="news-excerpt">El equipo paso a la final en la lucha por el título tras una actuación espectacular.</p>
+                        <a href="#" class="read-more">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Próximos Partidos -->
+    <section id="partidos" class="fixtures">
+        <div class="container">
+            <div class="section-title">
+                <h2>Próximos Partidos</h2>
+            </div>
+            <div class="match-list">
+                <div class="match-card">
+                    <div class="match-info">
+                        <div class="match-date">12 Abr, 21:00</div>
+                        <div>Liga Santander</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team-name">FC Barcelona</div>
+                        <img src="img/teams/barcelona.png" alt="Barcelona Logo">
+                        <div class="vs">VS</div>
+                        <img src="img/teams/madrid.png" alt="Real Madrid Logo">
+                        <div class="team-name">Real Madrid</div>
+                    </div>
+                    <div class="match-venue">
+                        <div>Estadio Camp Nou</div>
+                        <a href="#" class="read-more">Comprar Entrada</a>
+                    </div>
+                </div>
+                
+                <div class="match-card">
+                    <div class="match-info">
+                        <div class="match-date">16 Abr, 20:45</div>
+                        <div>Champions League</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team-name">Manchester City</div>
+                        <img src="img/teams/city.jpg" alt="Manchester City Logo">
+                        <div class="vs">VS</div>
+                        <img src="img/teams/barcelona.png" alt="Barcelona Logo">
+                        <div class="team-name">FC Barcelona</div>
+                    </div>
+                    <div class="match-venue">
+                        <div>Etihad Stadium</div>
+                        <a href="#" class="read-more">Más info</a>
+                    </div>
+                </div>
+                
+                <div class="match-card">
+                    <div class="match-info">
+                        <div class="match-date">20 Abr, 18:30</div>
+                        <div>Liga Santander</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team-name">FC Barcelona</div>
+                        <img src="img/teams/barcelona.png" alt="Barcelona Logo">
+                        <div class="vs">VS</div>
+                        <img src="img/teams/valencia.jpg" alt="Valencia Logo">
+                        <div class="team-name">Valencia CF</div>
+                    </div>
+                    <div class="match-venue">
+                        <div>Estadio Camp Nou</div>
+                        <a href="#" class="read-more">Comprar Entrada</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jugadores Destacados -->
+    <section id="jugadores" class="players">
+        <div class="container">
+            <div class="section-title">
+                <h2>Jugadores Destacados</h2>
+            </div>
+            <div class="player-grid">
+                <div class="player-card">
+                    <img src="img/players/player1.jpg" alt="Jugador 1" class="player-img">
+                    <div class="player-info">
+                        <div class="player-number">10</div>
+                        <h3 class="player-name">Lionel Messi</h3>
+                        <div class="player-position">Delantero</div>
+                        <a href="#" class="read-more">Ver perfil</a>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="img/players/player2.jpg" alt="Jugador 2" class="player-img">
+                    <div class="player-info">
+                        <div class="player-number">19</div>
+                        <h3 class="player-name">Lamine Yamal</h3>
+                        <div class="player-position">Extremo Derecho</div>
+                        <a href="#" class="read-more">Ver perfil</a>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="img/players/player3.jpg" alt="Jugador 3" class="player-img">
+                    <div class="player-info">
+                        <div class="player-number">9</div>
+                        <h3 class="player-name">Lewandowski</h3>
+                        <div class="player-position">Delantero Centro</div>
+                        <a href="#" class="read-more">Ver perfil</a>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="img/players/player4.jpg" alt="Jugador 4" class="player-img">
+                    <div class="player-info">
+                        <div class="player-number">8</div>
+                        <h3 class="player-name">Pedri Gonzalez</h3>
+                        <div class="player-position">Centrocampista</div>
+                        <a href="#" class="read-more">Ver perfil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tienda -->
+    <section id="tienda" class="store">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tienda Oficial</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="img/products/jersey2.jpg" alt="Camiseta primera equipación" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Camiseta Primera Equipación 2024/25</h3>
+                        <div class="product-price">89.99 €</div>
+                        <a href="#" class="btn">Comprar ahora</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/products/jersey1.jpg" alt="Camiseta segunda equipación" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Cafarena</h3>
+                        <div class="product-price">89.99 €</div>
+                        <a href="#" class="btn">Comprar ahora</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/products/jersey3.jpg" alt="Balón oficial" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Balón oficial FC Barcelona 2024/25</h3>
+                        <div class="product-price">29.99 €</div>
+                        <a href="#" class="btn">Comprar ahora</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/products/jersey4.jpg" alt="Sudadera entrenamiento
+                    <div class="product-info">
+                        <h3 class="product-name">Sudadera de Entrenamiento</h3>
+                        <div class="product-price">74.99 €</div>
+                        <a href="#" class="btn">Comprar ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadio -->
+    <section id="estadio" class="stadium">
+        <div class="container">
+            <div class="section-title">
+                <h2>Camp Nou</h2>
+            </div>
+            <div class="stadium-content">
+                <img src="img/stadium/campnou.jpg" alt="Camp Nou" class="stadium-img">
+                <div class="stadium-info">
+                    <h3>El templo del fútbol barcelonista</h3>
+                    <p>El Camp Nou, con capacidad para 99.354 espectadores, es el estadio con mayor capacidad de Europa y el tercero del mundo. Inaugurado en 1957, este emblemático estadio ha sido testigo de innumerables momentos históricos del club.</p>
+                    <p>Actualmente, el estadio está siendo renovado con el proyecto Espai Barça, que convertirá al Camp Nou en uno de los recintos deportivos más modernos e innovadores del mundo.</p>
+                    <div class="visit-info">
+                        <div class="info-item">
+                            <div class="info-title">Tour Camp Nou</div>
+                            <p>Visita el museo, los vestuarios y pisa el césped del estadio más emblemático de España.</p>
+                            <a href="#" class="read-more">Reservar tour</a>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-title">Cómo llegar</div>
+                            <p>C/ d'Arístides Maillol, 12, 08028 Barcelona</p>
+                            <a href="#" class="read-more">Ver en mapa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section id="historia" class="history">
+        <div class="container">
+            <div class="section-title">
+                <h2>Historia del Club</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1899</div>
+                        <h3 class="timeline-title">Fundación del Club</h3>
+                        <p>Hans Gamper funda el Foot-Ball Club Barcelona el 29 de noviembre de 1899, iniciando la historia de uno de los clubes más grandes del mundo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1957</div>
+                        <h3 class="timeline-title">Inauguración del Camp Nou</h3>
+                        <p>Se inaugura el estadio Camp Nou, reemplazando al antiguo campo de Les Corts y convirtiéndose en el símbolo de la grandeza del club.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1992</div>
+                        <h3 class="timeline-title">Primera Copa de Europa</h3>
+                        <p>El FC Barcelona consigue su primera Copa de Europa en Wembley, bajo la dirección de Johan Cruyff y el legendario "Dream Team".</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2009</div>
+                        <h3 class="timeline-title">El sextete histórico</h3>
+                        <p>El equipo dirigido por Pep Guardiola logra un hito sin precedentes al ganar los seis títulos en disputa en un solo año.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Segundo triplete</h3>
+                        <p>Con Luis Enrique como entrenador, el Barça consigue su segundo triplete (Liga, Copa del Rey y Champions League).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="img/logo.png" alt="FC Barcelona Logo">
+                    </div>
+                    <p>FC Barcelona es más que un club de fútbol. Representa los valores de Cataluña y el compromiso con la sociedad a través del deporte.</p>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">YT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#noticias">Noticias</a></li>
+                        <li><a href="#partidos">Partidos</a></li>
+                        <li><a href="#jugadores">Jugadores</a></li>
+                        <li><a href="#tienda">Tienda</a></li>
+                        <li><a href="#estadio">Camp Nou</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>El Club</h3>
+                    <ul>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="#">Instalaciones</a></li>
+                        <li><a href="#">Palmarés</a></li>
+                        <li><a href="#">La Masía</a></li>
+                        <li><a href="#">Fundación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>C/ d'Arístides Maillol, 12</li>
+                        <li>08028 Barcelona</li>
+                        <li>Tel: +34 902 1899 00</li>
+                        <li>Email: info@fcbarcelona.cat</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FC Barcelona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            menuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Desplazamiento suave
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
