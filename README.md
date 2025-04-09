@@ -1,6 +1,6 @@
-# ESTRUCTURA DEL PROYECTO FC BARCELONA
+# ESTRUCTURA DEL PROYECTO 
 '''
-barcelona-website/
+TiendaFCBarca-website/
 │
 ├── index.html            # Archivo HTML principal
 ├── css/
