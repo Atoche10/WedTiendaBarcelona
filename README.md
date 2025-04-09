@@ -1,5 +1,5 @@
 # ESTRUCTURA DEL PROYECTO FC BARCELONA
-
+ya
 barcelona-website/
 │
 ├── index.html            # Archivo HTML principal
@@ -39,7 +39,6 @@ barcelona-website/
 │       └── ...
 │
 └── favicon.ico           # Favicon del sitio
-
 ## 1. DISEÑO Y PALETA DE COLORES
 
 ### Colores principales:
