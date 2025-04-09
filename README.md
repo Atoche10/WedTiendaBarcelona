@@ -1,5 +1,5 @@
 # ESTRUCTURA DEL PROYECTO FC BARCELONA
-ya
+
 barcelona-website/
 │
 ├── index.html            # Archivo HTML principal
